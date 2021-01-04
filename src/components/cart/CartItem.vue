@@ -7,8 +7,8 @@
       <p>{{cart_item_data.price}}</p>
       <p>{{cart_item_data.article}}</p>
     </div>
-    <div class="cart-item__quantity"></div>
-    <button>Remove</button>
+    <div class="cart-item__quantity">{{cart_item_data.quantity}}</div>
+    <button @click="removeCartItem">Remove</button>
   </div>
 </template>
 
@@ -30,6 +30,14 @@ export default {
     return {
     }
   },
+  mounted() {
+    this.$set(this.cart_item_data, 'quantity', 1)
+  },
+  methods: {
+    removeCartItem() {
+      this.$emit('removeCartItem');
+    },
+  }
 
 
 }
