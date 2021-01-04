@@ -1,19 +1,49 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "image": "1.jpg",
+      "title": "T-shirt 1",
+      "price": 2100.234234234,
+      "article": "T1",
+      "available": true,
+      "category": "Мужские"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "image": "2.jpg",
+      "title": "T-shirt 2",
+      "price": 3150.12312412,
+      "article": "T2",
+      "available": true,
+      "category": "Женские"
+    },
+    {
+      "id": 3,
+      "image": "3.jpg",
+      "title": "T-shirt 3",
+      "price": 4200.51524,
+      "article": "T3",
+      "available": false,
+      "category": "Женские"
+    },
+    {
+      "id": 4,
+      "image": "4.jpg",
+      "title": "T-shirt 4",
+      "price": 5300.1245512,
+      "article": "T4",
+      "available": true,
+      "category": "Мужские"
+    },
+    {
+      "id": 5,
+      "image": "5.jpg",
+      "title": "T-shirt 5",
+      "price": 6500.3522314,
+      "article": "T5",
+      "available": false,
+      "category": "Женские"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
