@@ -1,28 +1,18 @@
 <template>
   <div class="wrapper">
-    <Catalog/>
-    <Cart
-      v-if="PRODUCTS_IN_CART.length"
-      :cart_data="PRODUCTS_IN_CART"
-    />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Catalog from '@/components/catalog/Catalog.vue'
-import Cart from '@/components/cart/Cart.vue'
 import {mapGetters} from 'vuex'
 
 export default {
   name: 'MainWrapper',
   props: {},
-  components: {
-    Catalog,
-    Cart
-  },
+  components: {},
   data() {
     return {
-      title: 'Wrapper'
     }
   },
   mounted() {

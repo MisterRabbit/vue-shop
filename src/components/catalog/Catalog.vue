@@ -1,5 +1,8 @@
 <template>
   <div class="catalog__wrapper">
+    <router-link to="/cart">
+      <div>Cart: {{PRODUCTS_IN_CART.length}}</div>
+    </router-link>
     <h1 class="catalog__title">Catalog</h1>
     <div class="catalog">
       <CatalogItem
@@ -36,7 +39,8 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'PRODUCTS_LIST'
+      'PRODUCTS_LIST',
+      'PRODUCTS_IN_CART',
     ]),
   },
   watch: {

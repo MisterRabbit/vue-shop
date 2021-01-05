@@ -1,7 +1,10 @@
 <template>
   <div class="cart">
+    <h1>Cart</h1>
+    <router-link to="/">Back to catalog</router-link>
+
     <CartItem
-      v-for="(item, index) in cart_data"
+      v-for="(item, index) in PRODUCTS_IN_CART"
       :key="item.id"
       :cart_item_data="item"
       @removeCartItem="removeCartItem(index)"
@@ -12,16 +15,11 @@
 <script>
 import CartItem from '@/components/cart/CartItem.vue'
 import {mapActions} from 'vuex'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'Cart',
   props: {
-    cart_data: {
-      type: Array,
-      default() {
-        return []
-      }
-    }
   },
   components: {
     CartItem
@@ -30,6 +28,11 @@ export default {
     return {
     }
   },
+  computed: {
+    ...mapGetters([
+      'PRODUCTS_IN_CART',
+    ]),
+  },
   methods: {
     ...mapActions([
       'REMOVE_FROM_CART'
@@ -37,8 +40,7 @@ export default {
     removeCartItem(index) {
       this.REMOVE_FROM_CART(index)
     }
-  }
-
+  },
 
 }
 </script>
