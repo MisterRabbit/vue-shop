@@ -8,7 +8,13 @@
       :key="item.id"
       :cart_item_data="item"
       @removeCartItem="removeCartItem(index)"
+      @incremet="incremet(index)"
+      @decrement="decrement(index)"
+
     />
+    <div class="cart__total">
+        <p>Total: {{cartTotalPrice}}</p>
+    </div>
   </div>
 </template>
 
@@ -29,16 +35,33 @@ export default {
     }
   },
   computed: {
+    cartTotalPrice(){
+      let result = 0;
+      let products = this.PRODUCTS_IN_CART;
+      for (let key in products) {
+        result += (parseFloat(products[key].price) * parseInt(products[key].quantity));
+      }
+      return result;
+    },
+
     ...mapGetters([
       'PRODUCTS_IN_CART',
     ]),
   },
   methods: {
     ...mapActions([
-      'REMOVE_FROM_CART'
+      'REMOVE_FROM_CART',
+      'INCREMET_COUNT',
+      'DECREMENT_COUNT',
     ]),
     removeCartItem(index) {
       this.REMOVE_FROM_CART(index)
+    },
+    decrement(index) {
+      this.DECREMENT_COUNT(index);
+    },
+    incremet(index) {
+      this.INCREMET_COUNT(index);
     }
   },
 

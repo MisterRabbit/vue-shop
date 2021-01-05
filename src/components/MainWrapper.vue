@@ -1,28 +1,22 @@
 <template>
   <div class="wrapper">
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 
 export default {
   name: 'MainWrapper',
   props: {},
   components: {},
   data() {
-    return {
-    }
+    return {}
   },
-  mounted() {
-
-  },
-  computed: {
-    ...mapGetters([
-      'PRODUCTS_IN_CART'
-    ])
-  },
+  mounted() {},
+  computed: {},
   watch: {
 
   },

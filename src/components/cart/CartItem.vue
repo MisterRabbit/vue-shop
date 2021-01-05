@@ -7,7 +7,9 @@
       <p>{{cart_item_data.price}}</p>
       <p>{{cart_item_data.article}}</p>
     </div>
+    <button @click="decrementCount">-</button>
     <div class="cart-item__quantity">{{cart_item_data.quantity}}</div>
+    <button @click="incremetCount">+</button>
     <button @click="removeCartItem">Remove</button>
   </div>
 </template>
@@ -31,12 +33,18 @@ export default {
     }
   },
   mounted() {
-    this.$set(this.cart_item_data, 'quantity', 1)
   },
   methods: {
     removeCartItem() {
       this.$emit('removeCartItem');
     },
+    decrementCount() {
+      this.$emit('decrement');
+    },
+    incremetCount() {
+      this.$emit('incremet');
+    }
+
   }
 
 
